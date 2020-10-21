@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const morgan = require('morgan');
 const games = require('./games.js');
@@ -19,7 +20,7 @@ app.get('/apps', (req, res) => {
       return res.status(400).send('Sort must be Rating or App.')
     }
   }
-console.log(sort);
+  console.log(sort);
 
   if (sort) {
     data.sort((currentGame, nextGame) => {
@@ -29,13 +30,11 @@ console.log(sort);
       return 0;
     });
   }
-
-  if ((genres) && (!['action', 'puzzle', 'strategy', 'casual', 'arcade', 'card'].includes(genres))) { 
-    res 
-      .status(400) 
-      .send('Invalid genre'); 
+  if ((genres) && (!['action', 'puzzle', 'strategy', 'casual', 'arcade', 'card'].includes(genres))) {
+    res
+      .status(400)
+      .send('Invalid genre');
   }
-
 
   res.status(200).send(data);
 
