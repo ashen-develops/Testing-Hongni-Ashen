@@ -1,16 +1,30 @@
 {
-  "name": "playStore",
+  "name": "playstore",
   "version": "1.0.0",
   "description": "",
   "main": "api.js",
   "scripts": {
-    "start": "node api.js"
+    "test": "mocha",
+    "start": "node api.js",
+    "dev": "nodemon api.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashen-develops/Testing-Hongni-Ashen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ashen-develops/Testing-Hongni-Ashen/issues"
+  },
+  "homepage": "https://github.com/ashen-develops/Testing-Hongni-Ashen#readme",
+  "devDependencies": {
+    "mocha": "^8.2.0"
   }
 }

@@ -29,9 +29,21 @@ console.log(sort);
       return 0;
     });
   }
+
+  if ((genres) && (!['action', 'puzzle', 'strategy', 'casual', 'arcade', 'card'].includes(genres))) { 
+    res 
+      .status(400) 
+      .send('Invalid genre'); 
+  }
+
+
   res.status(200).send(data);
+
+  
 });
 
-app.listen(8000, () => {
+/*app.listen(8000, () => {
   console.log('Server started on port 8000');
-});
+});*/
+
+module.exports = app
