@@ -30,8 +30,14 @@ describe('Get /apps', () => {
 
     });
 
-    it('should return a list of games sorted by names', () => {
-        
+    it('should return the name of genre matched', () => {
+        return supertest(app)
+            .get('/apps')
+            .expect(200)
+            .expect('Content-Type', /json/)
+            .then(res => {
+                expect(res.body[0].Genres).contain(['Adventure;Action & Adventure']);
+            });
     });
 
 });
