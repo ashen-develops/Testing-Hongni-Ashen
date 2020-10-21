@@ -9,29 +9,29 @@ describe('Get /apps', () => {
             .expect(200)
             .expect('Content-Type', /json/)
             .then(res => {
-                expect(res.body[0].Rating).equal(4.5);
-                expect(res.body).contains(res.body[0]);
+                expect(res.body).to.be.an('array')
+                let sort = true;
+                let i = 0;
+                while(i < res.body.length - 1){
+                    const game = res.body[i]
+                    const nextGame = res.body[i++]
+                    if(game.Rating < nextGame.Rating) {
+                        sort = false;
+                        break;
+                    }
+                    if(game.App < nextGame.App){
+                        sort = false;
+                        break
+                    }
+                    i++
+                }
+                expect(sort).to.be.true;
             });
 
     });
 
     it('should return a list of games sorted by names', () => {
-        return supertest(app)
-            .get('/apps')
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then(res => {
-                expect(res.body[0].App).contain(['ROBLOX']);
-            });
+        
     });
 
-    it('sorting test', () => {
-        return supertest(app)
-            .get('/apps')
-            .expect(200)
-            .expect('Content-Type', /json/)
-            .then(res => {
-                expect(res.body.Rating).sort()
-            })
-    })
 });
