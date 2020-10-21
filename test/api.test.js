@@ -36,7 +36,7 @@ describe('Get /apps', () => {
             .expect(200)
             .expect('Content-Type', /json/)
             .then(res => {
-                expect(res.body[0].Genres).contain(['Adventure;Action & Adventure']);
+                expect(res.body[0].Genres).contain(['Action'|| 'Puzzle'|| 'Strategy'|| 'Casual'|| 'Arcade'|| 'Card']);
             });
     });
 
