@@ -5,19 +5,19 @@ const games = require('./games.js');
 
 const app = express();
 
-app.use(morgan('dev'))
+app.use(morgan('dev'));
 app.get('/', (req, res) =>{
-  res.send('Hello!')
+  res.send('Hello!');
 })
 
 app.get('/apps', (req, res) => {
-  console.log('req.query ', req.query)
+  console.log('req.query ', req.query);
   const {genres, sort} = req.query;
   let data = games;
 
   if (sort) {
     if (!['Rating', 'App'].includes(sort)){
-      return res.status(400).send('Sort must be Rating or App.')
+      return res.status(400).send('Sort must be Rating or App.');
     }
   }
   console.log(sort);
@@ -45,4 +45,4 @@ app.get('/apps', (req, res) => {
   console.log('Server started on port 8000');
 });*/
 
-module.exports = app
+module.exports = app;
